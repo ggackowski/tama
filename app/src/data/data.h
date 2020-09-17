@@ -1,26 +1,28 @@
-#include <Arduino.h>
+// #include <Arduino.h>
 #ifndef DATA_H_
 #define DATA_H_
-#include "input.h"
-#include "display.h"
+#include "../input/input.h"
+#include "../display/display.h"
 
 namespace Tama {
 
+  // typedef unsigned char unsigned int;
+
   struct Pet {
-    byte age;
-    byte hunger;
-    byte thirst;
+    unsigned char age;
+    unsigned char hunger;
+    unsigned char thirst;
     bool hasPooped;
     bool isIll;
     char name[3];
   };
 
   struct Date {
-    byte day;
-    byte month;
-    byte hour;
-    byte minute;
-    byte second;
+    unsigned char day;
+    unsigned char month;
+    unsigned char hour;
+    unsigned char minute;
+    unsigned char second;
   };
   
 

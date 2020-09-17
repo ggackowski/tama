@@ -1,10 +1,10 @@
-#include "input.h"
+#include "keypad.input.h"
 
 
 
-Tama::Input::Input() {
-  rowpins = new byte;
-  colpins = new byte;
+Tama::KeypadInput::KeypadInput() {
+  rowpins = new unsigned char;
+  colpins = new unsigned char;
   ks = new char[3];
   
   ks[0] = 'A';
@@ -18,7 +18,7 @@ Tama::Input::Input() {
   keypad = new Keypad(ks, rowpins, colpins, 1, 3);
 }
 
-Tama::Input::Key Tama::Input::getKey() {
+Tama::Input::Key Tama::KeypadInput::getKey() {
    
     char k = keypad->getKey();
     switch(k) {
@@ -28,12 +28,12 @@ Tama::Input::Key Tama::Input::getKey() {
          return B;
       case 'C':
          return C;
-      default: return Input::Undefined; 
+      default: return Input::UNDEFINED; 
     }
     return A;
 }
 
-Tama::Input::~Input() {
+Tama::KeypadInput::~KeypadInput() {
   Serial.print("dead");
 }
 

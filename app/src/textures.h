@@ -2,22 +2,22 @@
 #ifndef TEXTURES_H_
 #define TEXTURES_H_
 
-const byte startup_1[] PROGMEM = 
+const unsigned char startup_1[] PROGMEM = 
 { 252, 255, 40, 136, 229, 51, 157, 206, 84, 46, 211, 105, 142, 229, 255, 159, 186, 80, 238, 250, 105, 13, 229, 245, 157, 238, 80, 252, 255, 0 };
 
-const byte startup_2[] PROGMEM = 
+const unsigned char startup_2[] PROGMEM = 
 { 2, 0, 213, 119, 26, 204, 98, 49, 171, 209, 44, 150, 113, 26, 0, 96, 69, 175, 17, 5, 150, 242, 26, 10, 98, 17, 47, 2, 0, 1 };
 
-const byte startup_3[] PROGMEM= 
+const unsigned char startup_3[] PROGMEM= 
 { 0, 0, 0, 31, 0, 130, 0, 224, 0, 64, 4, 128, 36, 0, 186, 0, 164, 4, 144, 19, 64, 64, 0, 41, 1, 8, 2, 192, 7, 0 };
 
-const byte startup_4[] PROGMEM= 
+const unsigned char startup_4[] PROGMEM= 
 { 128, 3, 0, 17, 0, 0, 0, 224, 0, 64, 4, 128, 36, 0, 170, 0, 164, 4, 144, 19, 64, 64, 0, 41, 1, 8, 2, 192, 7, 0 };
 
-const byte egg_1[] PROGMEM = 
+const unsigned char egg_1[] PROGMEM = 
 { 0, 0, 0, 0, 0, 0, 0, 224, 0, 64, 5, 128, 34, 0, 194, 0, 68, 4, 144, 18, 64, 69, 0, 129, 1, 8, 3, 192, 7, 0 };
 
-const byte egg_2[] PROGMEM =
+const unsigned char egg_2[] PROGMEM =
 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 120, 80, 80, 130, 41, 84, 86, 166, 90, 49, 42, 40, 5, 192, 15, 0 };
 
 

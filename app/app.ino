@@ -1,15 +1,18 @@
-#include "intro.h"
-#include "textures.h"
+#include "src/intro/intro.h"
+#include "src/textures.h"
+#include "src/display/classic.display/nokia5110.classic.display/nokia5110.classic.display.h"
+#include "src/input/keypad.input/keypad.input.h"
+#include "src/data/data.h"
 
 void App() {
   Tama::Data data;
   
-  Tama::Display d(Tama::Display::Scale2);
+  Tama::Display * d = new Tama::Nokia5110ClassicDisplay(Tama::ClassicDisplay::Mode::Scale1);
   
-  Tama::Input input;
-  data.d = &d;
+  Tama::Input * input = new Tama::KeypadInput();
+  data.d = d;
   
-  data.input = &input;
+  data.input = input;
   Tama::intro(&data);
 }
 
