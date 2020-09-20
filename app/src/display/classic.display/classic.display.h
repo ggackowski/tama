@@ -9,7 +9,7 @@ namespace Tama {
         enum Mode {Scale1 = 1, Scale2 = 2};
         enum PixelColor {Black, White};
         ClassicDisplay(ClassicDisplay::Mode m);
-        ~ClassicDisplay();
+        ~ClassicDisplay() {};
         void drawSprite(Tama::Sprite &, unsigned char, unsigned char);  
         void drawExtraSprite(Tama::Sprite &, unsigned char, unsigned char);  
         virtual void clear() = 0;
