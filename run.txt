@@ -1,0 +1,1 @@
+g++ main.cpp src/display/classic.display/console.classic.display/console.classic.display.cpp src/display/classic.display/classic.display.cpp src/display/display.cpp src/sprite/sprite.cpp src/data.loader/standard.data.loader/standard.data.loader.cpp src/thread.manager/std.thread.manager/std.thread.manager.cpp -o app.exe

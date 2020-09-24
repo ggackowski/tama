@@ -1,0 +1,35 @@
+@startuml
+
+interface Display {
+  +drawSprite(Sprite *, unsigned char, unsigned char): void
+  +drawExtraSprite(Sprite *, unsigned char, unsigned char): void
+  +clear(): void
+}
+
+enum Mode {
+  Scale1, Scale2
+}
+
+enum PixelColor {
+  Black, White
+}
+
+class ClassicDisplay {
+  +drawSprite(Sprite *, unsigned char, unsigned char): void
+  +drawExtraSprite(Sprite *, unsigned char, unsigned char): void
+  ~pixelDrawingStrategy(int, int, PixelColor): void
+  ~displayPrintingStrategy(): void
+  ~clear(): void
+}
+
+class ConsoleClassicDisplay {
+  +clear();
+  -pixelDrawingStrategy(int, int, PixelColor): void
+  -displayPrintingStrategy(): void
+}
+
+Display <|-- ClassicDisplay
+
+ClassicDisplay <-- ConsoleClassicDisplay
+
+@enduml
