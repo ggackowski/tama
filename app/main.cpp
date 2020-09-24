@@ -4,11 +4,13 @@
 #include "src/data.loader/standard.data.loader/standard.data.loader.h"
 #include "src/textures_exe.h"
 #include "src/thread.manager/std.thread.manager/std.thread.manager.h"
+#include "src/input.manager/input.manager.h"
 #include <iostream>
 #include <unistd.h>
 
+Tama::Input * input;
+
 void keyListening() {
-  Tama::Input * input = new Tama::KeyboardInput();
   while (true) {
     input->listenForKeys();
     std::cout << "na";
@@ -20,6 +22,7 @@ void listenForKeyPressed(Tama::ThreadManager * threadManager) {
 }
 
 int main() {
+  input = new Tama::KeyboardInput();
   Tama::Display * display = new Tama::ConsoleClassicDisplay(Tama::ClassicDisplay::Mode::Scale1);
   Tama::ThreadManager * threadManager = new Tama::StdThreadManager();
   Tama::DataLoader * dataLoader = new Tama::StandardDataLoader();
@@ -27,7 +30,12 @@ int main() {
   Tama::Sprite * sprite3 = dataLoader->createSpriteWithData(egg_1, 30, 18, 13);
   Tama::Sprite * sprite4 = dataLoader->createSpriteWithData(egg_2, 30, 18, 13);
 
-  listenForKeyPressed(threadManager);
+  Tama::InputManager::setInput(input);
+  Tama::InputManager::setThreadManager(threadManager);
+
+  Tama::InputManager::runInputInThread();
+
+  //listenForKeyPressed(threadManager);
 
   int a = 0;
 
