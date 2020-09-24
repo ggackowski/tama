@@ -1,5 +1,4 @@
 #include "console.classic.display.h"
-#include <windows.h>
 #include <iostream>
 
 Tama::ConsoleClassicDisplay::ConsoleClassicDisplay(Tama::ClassicDisplay::Mode m) : Tama::ClassicDisplay(m) {
@@ -25,7 +24,7 @@ Tama::ConsoleClassicDisplay::~ConsoleClassicDisplay() {}
 
 void Tama::ConsoleClassicDisplay::pixelDrawingStrategy(int x, int y, ClassicDisplay::PixelColor pc) {
   if (pc == ClassicDisplay::PixelColor::Black) {
-    this->display[x][y] = 219;
+    this->display[x][y] = 'O';
   } else {
     this->display[x][y] = ' ';
   }
@@ -33,6 +32,6 @@ void Tama::ConsoleClassicDisplay::pixelDrawingStrategy(int x, int y, ClassicDisp
 
 
 void Tama::ConsoleClassicDisplay::clear() {
-  system("cls");
+  system("clear");
   this->clearDisplayArray();
 }

@@ -2,5 +2,9 @@
 #include <thread>
 
 void Tama::StdThreadManager::runInThread(void (*callback) (void)) {
-  std::thread thread(callback);
+  this->thread = new std::thread(callback);
+}
+
+void Tama::StdThreadManager::removeThreads() {
+  this->thread->join();
 }

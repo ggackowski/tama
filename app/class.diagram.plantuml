@@ -14,6 +14,73 @@ enum PixelColor {
   Black, White
 }
 
+enum Key {
+  A, B, C, Undefined
+}
+
+interface DataLoader {
+  +readByte(unsigned char *): unsigned char
+  +createSpriteWithData(unsigned char *, unsigned char, unsigned char, unsigned char): Sprite *
+}
+
+class StandardDataLoader {
+  +readByte(unsigned char *): unsigned char
+  +createSpriteWithData(unsigned char *, unsigned char, unsigned char, unsigned char): Sprite *
+}
+
+DataLoader <|-- StandardDataLoader
+
+class Egg {
+
+}
+
+interface Input {
+  +addListener(KeyListener *): void
+  +listenForKeys(): void
+  +getKey(): Key
+}
+
+class KeyboardInput {
+  +addListener(KeyListener *): void
+  +listenForKeys(): void
+  +getKey(): Key
+}
+
+Input <|-- KeypadInput
+
+class KeypadInput {
+  +addListener(KeyListener *): void
+  +listenForKeys(): void
+  +getKey(): Key
+}
+
+
+Input <|-- KeyboardInput
+
+class Intro {
+
+}
+
+interface KeyListener {
+
+}
+
+class Sprite {
+
+}
+
+interface ThreadManager {
+  +runInThread(void (*) void): void
+  +removeThreads(): void
+}
+
+class StdThreadManager {
+  +runInThread(void (*) void): void
+  +removeThreads(): void
+}
+
+ThreadManager <|-- StdThreadManager
+
 class ClassicDisplay {
   +drawSprite(Sprite *, unsigned char, unsigned char): void
   +drawExtraSprite(Sprite *, unsigned char, unsigned char): void
@@ -27,6 +94,14 @@ class ConsoleClassicDisplay {
   -pixelDrawingStrategy(int, int, PixelColor): void
   -displayPrintingStrategy(): void
 }
+
+class Nokia5110ClassicDisplay {
+  +clear();
+  -pixelDrawingStrategy(int, int, PixelColor): void
+  -displayPrintingStrategy(): void
+}
+
+ClassicDisplay <-- Nokia5110ClassicDisplay
 
 Display <|-- ClassicDisplay
 

@@ -9,9 +9,10 @@ namespace Tama {
     public:
       StdThreadManager() {}
       ~StdThreadManager() {}
-      void runInThread(void (*callback) ());
+      void runInThread(void (*) (void));
+      void removeThreads();
     private:
-
+      std::thread * thread;
   };
 }
 

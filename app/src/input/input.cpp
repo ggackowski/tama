@@ -1,7 +1,7 @@
 #include "input.h"
 
 Tama::Input::Input() {
-  runKeyListeningThread();
+  lastPressedKey = Tama::Key::UNDEFINED;
 }
 
 void Tama::Input::addListener(Tama::KeyListener * keyListener) {
@@ -10,10 +10,6 @@ void Tama::Input::addListener(Tama::KeyListener * keyListener) {
 
 void Tama::Input::informListeners() {
   for (Tama::KeyListener * keyListener : keyListeners) {
-    keyListener->afterKeyPressed();
+    keyListener->afterKeyPressed(lastPressedKey);
   }
-}
-
-void Tama::Input::runKeyListeningThread() {
-
 }
